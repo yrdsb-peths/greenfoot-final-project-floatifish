@@ -22,6 +22,16 @@ public class Elephant extends Actor
         {
             move(1);
         }
-        removeToching(Banana.class);
+        eat();
+    }
+    
+    public void eat()
+    {
+        if(isTouching(Banana.class))
+        {
+            removeToching(Banana.class);
+            MyWorld = (MyWorld)getWorld();
+            world.createBanana();
+        }
     }
 }

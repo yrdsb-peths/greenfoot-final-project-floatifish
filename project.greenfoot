@@ -1,12 +1,15 @@
 #Greenfoot project file
 class.Banana.image=bananas.png
 class.Elephant.image=elephant.png
-editor.fx.0.height=672
-editor.fx.0.width=816
-editor.fx.0.x=348
-editor.fx.0.y=41
+dependency1.from=Elephant
+dependency1.to=Banana
+dependency1.type=UsesDependency
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
 height=551
-package.numDependencies=0
+package.numDependencies=1
 package.numTargets=3
 project.charset=UTF-8
 publish.hasSource=false

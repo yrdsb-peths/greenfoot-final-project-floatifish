@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Banana here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Eric Wang 
+ * @version 2022.6.1
  */
 public class Banana extends Actor
 {
@@ -14,6 +14,6 @@ public class Banana extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        setLocation(getX(),getY() + 1);
     }
 }
