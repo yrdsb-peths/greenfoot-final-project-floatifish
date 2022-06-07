@@ -13,11 +13,5 @@ public class Meteoite extends Actor
         int x = getX();
         int y = getY() + 5;
         setLocation(x , y);
-        MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight()-10)
-        {
-            world.gameOver();
-            world.removeObject(this);
-        }
     }
 }
