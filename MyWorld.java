@@ -26,6 +26,7 @@ public class MyWorld extends World
         scoreLabel = new Label(0 , 80);
         addObject(scoreLabel,50 ,50 );
         createBanana();
+        createMeteorite();
     }
     
     public void gameOver()
@@ -52,11 +53,11 @@ public class MyWorld extends World
         addObject(banana ,x ,y);
     }
     
-    public void createMeteoite()
+    public void createMeteorite()
     {
-        Meteoite meteoite = new Meteoite();
+        Meteorite meteorite = new Meteorite();
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
-        addObject(meteoite ,x ,y);
+        addObject(meteorite ,x ,y);
     }
 }

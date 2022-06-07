@@ -83,7 +83,7 @@ public class Elephant extends Actor
     }
     public void destroy()
     {
-        if(isTouching(Meteoite.class))
+        if(isTouching(Meteorite.class))
         {
             MyWorld world = (MyWorld)getWorld();
             world.gameOver();

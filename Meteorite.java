@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eric Wang
  * @version 2022.6.1
  */
-public class Meteoite extends Actor
+public class Meteorite extends Actor
 {
     public void act()
     {
