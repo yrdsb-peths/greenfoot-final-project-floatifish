@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Elephant
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Elephant\ here.\r\n\ \r\n\ @author\ Eric\r\n\ @version\ 2022.6.1\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Elephant\ here.\r\n\ \r\n\ @author\ Eric\ Wang\r\n\ @version\ 2022.6.1\r\n
 comment1.params=
 comment1.target=Elephant()
 comment2.params=
@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ eat()
-numComments=5
+comment5.params=
+comment5.target=void\ destroy()
+numComments=6

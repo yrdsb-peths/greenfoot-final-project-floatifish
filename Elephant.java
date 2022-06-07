@@ -8,21 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Elephant extends Actor
 {
-    GreenfootSound elephantSound = new GreenfootSound("9577.wav");
+    GreenfootSound elephantSound = new GreenfootSound("water drop.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[3];
-    GreenfootImage[] idleLeft = new GreenfootImage[6];
+    GreenfootImage[] idleLeft = new GreenfootImage[3];
     String facing ="right";
     SimpleTimer animationTimer = new SimpleTimer();
     public Elephant()
     {
         for(int i = 0;i < idleRight.length; i++)
         {
-            idleRight[i] = new GreenfootImage("imgages/idle_SpaceShip/idle" + i);
+            idleRight[i] = new GreenfootImage("images/idle_SpaceShip/idle" + i + ".png");
             idleRight[i].scale(100,100);
         }
         for(int i = 0;i < idleLeft.length; i++)
         {
-            idleLeft[i] = new GreenfootImage("imgages/idle_SpaceShip/idle" + i);
+            idleLeft[i] = new GreenfootImage("images/idle_SpaceShip/idle" + i + ".png");
             idleLeft[i].mirrorHorizontally();
             idleLeft[i].scale(100,100);
         }
@@ -58,12 +58,12 @@ public class Elephant extends Actor
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-3);
+            move(-6);
             facing = "Left";
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(3);
+            move(6);
             facing = "Right";
         }
         eat();
@@ -81,4 +81,14 @@ public class Elephant extends Actor
             elephantSound.play();
         }
     }
+    public void destroy()
+    {
+        if(isTouching(Meteoite.class))
+        {
+            MyWorld world = (MyWorld)getWorld();
+            world.gameOver();
+            world.removeObject(this);
+        }
+    }
+    
 }
