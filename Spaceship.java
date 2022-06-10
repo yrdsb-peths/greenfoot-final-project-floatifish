@@ -10,65 +10,43 @@ public class Spaceship extends Actor
 {
     GreenfootSound spaceshipSound = new GreenfootSound("water drop.mp3");
     GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
-    GreenfootImage[] idleRight = new GreenfootImage[2];
-    GreenfootImage[] idleLeft = new GreenfootImage[2];
-    String facing ="up";
+
+    GreenfootImage leftImage = new GreenfootImage("images/idle_SpaceShip_left/idle1.png");
+    String isFacing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
+
     public Spaceship()
     {
-        for(int i = 0;i < idleRight.length; i++)
-        {
-            idleRight[i] = new GreenfootImage("images/idle_SpaceShip_right/idle" + i + ".png");
-            idleRight[i].scale(100,100);
-        }
-        for(int i = 0;i < idleLeft.length; i++)
-        {
-            idleLeft[i] = new GreenfootImage("images/idle_SpaceShip_left/idle" + i + ".png");
-            idleLeft[i].scale(100,100);
-        }
-        
+
         animationTimer.mark();
-        
-        setImage(idleLeft[0]);
+
     }
-    
+
     int imageIndex = 0;
-    
-    public void animateSpaceship()
-    {
-        if(animationTimer.millisElapsed() < 100)
-        {
-           return;
-        }
-        animationTimer.mark();
-        
-        if(facing.equals("right"))
-        { 
-            setImage(idleRight[imageIndex]);
-            imageIndex = (imageIndex + 1) % idleLeft.length;
-        }
-        else
-        { 
-            setImage(idleLeft[imageIndex]);
-            imageIndex = (imageIndex + 1) % idleLeft.length;
-        }
-    }
-    
+
     public void act()
     {
         if(Greenfoot.isKeyDown("left"))
         {
+            isFacing = "left";
             move(-6);
-            facing = "Left";
+            
         }
         else if(Greenfoot.isKeyDown("right"))
         {
+            isFacing = "right";
             move(6);
-            facing = "Right";
+            
         }
         eat();
         destroy();
-        animateSpaceship();
+
+        if(isFacing.equals("left")){
+            setImage(leftImage);
+        }
+        // else if(isFacing.equals("up")...
+        
+        
     }
 
     public void eat()
@@ -82,6 +60,7 @@ public class Spaceship extends Actor
             spaceshipSound.play();
         }
     }
+
     public void destroy()
     {
         if(isTouching(Meteorite.class))
