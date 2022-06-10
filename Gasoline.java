@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eric Wang 
  * @version 2022.6.1
  */
-public class Banana extends Actor
+public class Gasoline extends Actor
 {
     int speed = 1;
     public void act()

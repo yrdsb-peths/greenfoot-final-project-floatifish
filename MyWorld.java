@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
     public int score = 0;
     Label scoreLabel;
     int level = 1;
@@ -20,12 +21,13 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         
-        Elephant elephant = new Elephant();
-        addObject(elephant, 350, 350);
+        Spaceship spaceship = new Spaceship();
+        addObject(spaceship, 350, 350);
         
         scoreLabel = new Label(0 , 80);
         addObject(scoreLabel,50 ,50 );
-        createBanana();
+        backgroundSound.play();
+        createGasoline();
         createMeteorite();
     }
     
@@ -44,13 +46,13 @@ public class MyWorld extends World
             level +=1;
         }
     }
-    public void createBanana()
+    public void createGasoline()
     {
-        Banana banana = new Banana();
-        banana.setSpeed(level);
+        Gasoline gasoline = new Gasoline();
+        gasoline.setSpeed(level);
         int x = Greenfoot.getRandomNumber(600);
         int y = 0;
-        addObject(banana ,x ,y);
+        addObject(gasoline ,x ,y);
     }
     
     public void createMeteorite()

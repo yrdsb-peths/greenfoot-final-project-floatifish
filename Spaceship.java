@@ -6,14 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Eric Wang
  * @version 2022.6.1
  */
-public class Elephant extends Actor
+public class Spaceship extends Actor
 {
-    GreenfootSound elephantSound = new GreenfootSound("water drop.mp3");
+    GreenfootSound spaceshipSound = new GreenfootSound("water drop.mp3");
+    GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[2];
     GreenfootImage[] idleLeft = new GreenfootImage[2];
-    String facing ="right";
+    String facing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
-    public Elephant()
+    public Spaceship()
     {
         for(int i = 0;i < idleRight.length; i++)
         {
@@ -23,7 +24,6 @@ public class Elephant extends Actor
         for(int i = 0;i < idleLeft.length; i++)
         {
             idleLeft[i] = new GreenfootImage("images/idle_SpaceShip_left/idle" + i + ".png");
-            idleLeft[i].mirrorHorizontally();
             idleLeft[i].scale(100,100);
         }
         
@@ -34,7 +34,7 @@ public class Elephant extends Actor
     
     int imageIndex = 0;
     
-    public void animateElephant()
+    public void animateSpaceship()
     {
         if(animationTimer.millisElapsed() < 100)
         {
@@ -68,28 +68,28 @@ public class Elephant extends Actor
         }
         eat();
         destroy();
-        animateElephant();
+        animateSpaceship();
     }
 
     public void eat()
     {
-        if(isTouching(Banana.class))
+        if(isTouching(Gasoline.class))
         { 
-            removeTouching(Banana.class);
+            removeTouching(Gasoline.class);
             MyWorld world = (MyWorld)getWorld();
-            world.createBanana();
+            world.createGasoline();
             world.increaseScore();
-            elephantSound.play();
+            spaceshipSound.play();
         }
     }
     public void destroy()
     {
         if(isTouching(Meteorite.class))
         {
+            removeTouching(Meteorite.class);
             MyWorld world = (MyWorld) getWorld();
             world.createMeteorite();
             world.gameOver();
-            world.removeObject(this);
         }
     }
 }

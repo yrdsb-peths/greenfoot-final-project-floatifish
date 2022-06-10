@@ -33,8 +33,8 @@ public class TitleScreen extends World
     
     private void prepare()
     {
-        Elephant elephant = new Elephant();
-        addObject(elephant,482,96);
+        Spaceship spaceship = new Spaceship();
+        addObject(spaceship,482,96);
         Label label = new Label("Use 🠔 and 🠖 to Move",25);
 
         addObject(label,309,272);
