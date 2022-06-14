@@ -11,7 +11,7 @@ public class Meteorite extends Actor
     public void act()
     {
         int x = getX();
-        int y = getY() + 5;
+        int y = getY() + 10;
         setLocation(x , y);
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()-10)

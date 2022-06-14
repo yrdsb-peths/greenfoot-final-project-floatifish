@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
+    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
     public int score = 0;
     Label scoreLabel;
     int level = 1;
@@ -36,6 +37,7 @@ public class MyWorld extends World
         Label gameOverLabel = new Label("Game Over" ,100);
         addObject(gameOverLabel, 300, 200);
     }
+    
     public void increaseScore()
     {
         score++;
@@ -46,6 +48,7 @@ public class MyWorld extends World
             level +=1;
         }
     }
+    
     public void createGasoline()
     {
         Gasoline gasoline = new Gasoline();

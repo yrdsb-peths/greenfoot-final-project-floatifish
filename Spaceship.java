@@ -9,9 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Spaceship extends Actor
 {
     GreenfootSound spaceshipSound = new GreenfootSound("water drop.mp3");
-    GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
+    GreenfootSound explosion = new GreenfootSound("explosion.mp3");
 
     GreenfootImage leftImage = new GreenfootImage("images/idle_SpaceShip_left/idle1.png");
+    GreenfootImage rightImage = new GreenfootImage("images/idle_SpaceShip_right/idle1.png");
+    GreenfootImage upImage = new GreenfootImage("images/idle_SpaceShip_right/idle0.png");
     String isFacing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
 
@@ -26,17 +28,15 @@ public class Spaceship extends Actor
 
     public void act()
     {
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("A"))
         {
             isFacing = "left";
             move(-6);
-            
         }
-        else if(Greenfoot.isKeyDown("right"))
+        else if(Greenfoot.isKeyDown("D"))
         {
             isFacing = "right";
             move(6);
-            
         }
         eat();
         destroy();
@@ -45,8 +45,12 @@ public class Spaceship extends Actor
             setImage(leftImage);
         }
         // else if(isFacing.equals("up")...
-        
-        
+        else if(isFacing.equals("right")){
+            setImage(rightImage);
+        }
+        else if(isFacing.equals("up")){
+            setImage(upImage);
+        }
     }
 
     public void eat()
@@ -69,6 +73,8 @@ public class Spaceship extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.createMeteorite();
             world.gameOver();
+            world.removeObject(this);
+            explosion.play();
         }
     }
 }

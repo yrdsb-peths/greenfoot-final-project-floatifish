@@ -17,7 +17,7 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);
-        addObject(titleLabel, 270, 97);
+        addObject(titleLabel, 300, 70);
         prepare();
     }
 
@@ -33,21 +33,14 @@ public class TitleScreen extends World
     
     private void prepare()
     {
-        Spaceship spaceship = new Spaceship();
-        addObject(spaceship,482,96);
-        Label label = new Label("Use 🠔 and 🠖 to Move",25);
+        Label label = new Label("Use A and D to Move",25);
 
-        addObject(label,309,272);
-        label.setLocation(343,278);
-        label.setLocation(318,337);
-        label.setLocation(364,327);
-        label.setLocation(370,238);
+        addObject(label,150,150);
         Label label2 = new Label("Press <space> to Start", 40);
-        addObject(label2,278,314);
-        label2.setLocation(317,357);
-        label.setLocation(180,149);
-        label.setLocation(141,170);
-        label.setLocation(110,166);
-        label.setLocation(133,158);
+        Label label3 = new Label("Catch the gas to get score!", 25);
+        Label label4 = new Label("Do not touch the meteorite", 25);
+        addObject(label2,300,380);
+        addObject(label3,178,210);
+        addObject(label4,180,270);
     }
 }

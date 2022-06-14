@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gasoline extends Actor
 {
+    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
     int speed = 1;
     public void act()
     {
@@ -20,6 +21,7 @@ public class Gasoline extends Actor
         {
             world.gameOver();
             world.removeObject(this);
+            gameOverSound.play();
         }
     }
     
