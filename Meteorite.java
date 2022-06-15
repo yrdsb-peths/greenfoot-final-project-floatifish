@@ -16,7 +16,7 @@ public class Meteorite extends Actor
         MyWorld world = (MyWorld) getWorld();
         if(getY() >= world.getHeight()-10)
         {
-            //removeTouching(Meteorite.class);
+            removeTouching(Meteorite.class);
             world.createMeteorite();
             world.removeObject(this);
         }

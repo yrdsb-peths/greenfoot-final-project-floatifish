@@ -14,10 +14,7 @@ public class MyWorld extends World
     public int score = 0;
     Label scoreLabel;
     int level = 1;
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+
     public MyWorld()
     {    
         // Create a new world with 800x450 cells with a cell size of 1x1 pixels.
@@ -39,15 +36,8 @@ public class MyWorld extends World
         backgroundSound.stop();
         Label gameOverLabel = new Label("Game Over" ,100);
         addObject(gameOverLabel, 400, 200);
-        Label gameOverLabe2 = new Label("Press < s > to restart" ,40);
-        addObject(gameOverLabe2, 400, 300);
-        if(Greenfoot.isKeyDown("s"))
-        {
-            MyWorld gameWorld = new MyWorld();
-            Greenfoot.setWorld(gameWorld);
-        }
-    }  
-
+    }
+    
     public void increaseScore()
     {
         score++;

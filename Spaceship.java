@@ -16,19 +16,22 @@ public class Spaceship extends Actor
     GreenfootImage upImage = new GreenfootImage("images/idle_SpaceShip_right/idle0.png");
     String isFacing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
-    GreenfootImage explode1 =new GreenfootImage("images/explode/explode0.png");
-    GreenfootImage explode2 =new GreenfootImage("images/explode/explode1.png");
-    GreenfootImage explode3 =new GreenfootImage("images/explode/explode2.png");
-    GreenfootImage explode4 =new GreenfootImage("images/explode/explode3.png");
-    GreenfootImage explode5 =new GreenfootImage("images/explode/explode4.png");
+    GreenfootImage[] explode =new GreenfootImage[5];
     public Spaceship()
     {
-
+        for(int i = 0; i <explode.length; i++)
+        {
+            explode[i]=new GreenfootImage("images/explode/explode0.png");
+        }
         animationTimer.mark();
-
     }
 
     int imageIndex = 0;
+    public void spaceshipExplode()
+    {
+        setImage(explode[imageIndex]);
+        imageIndex = (imageIndex) +1 % explode.length;
+    }
 
     public void act()
     {
@@ -76,14 +79,9 @@ public class Spaceship extends Actor
     {
         if(isTouching(Meteorite.class))
         {
-            setImage(explode1);
-            //setImage(explode2);
-            //setImage(explode3);
-            //setImage(explode4);
-            //setImage(explode5);
+            spaceshipExplode();
             removeTouching(Meteorite.class);
             MyWorld world = (MyWorld) getWorld();
-            world.createMeteorite();
             world.gameOver();
             world.removeObject(this);
             explosion.play();
