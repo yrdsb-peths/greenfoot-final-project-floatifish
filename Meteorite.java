@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Meteoite here.
+ * to make meteorite move and make it random drop
  * 
  * @author Eric Wang
  * @version 2022.6.1

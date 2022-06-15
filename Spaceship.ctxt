@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Spaceship
-comment0.text=\n\ Write\ a\ description\ of\ class\ Elephant\ here.\n\ \n\ @author\ Eric\ Wang\n\ @version\ 2022.6.1\n
+comment0.text=\r\n\ to\ make\ Spaceship\ move,eat\ gasoline\ and\ be\ destroyed\r\n\ \r\n\ @author\ Eric\ Wang\r\n\ @version\ 2022.6.1\r\n
 comment1.params=
 comment1.target=Spaceship()
 comment2.params=

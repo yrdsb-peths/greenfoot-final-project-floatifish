@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Banana here.
+ * to make gasoline move and make it random drop.
  * 
  * @author Eric Wang 
  * @version 2022.6.1
@@ -14,6 +14,7 @@ public class Gasoline extends Actor
     {
         int x = getX();
         int y = getY() + 2 + speed;
+        //it can make gasoline speed up when it get more marks
         setLocation(x , y);
         
         MyWorld world = (MyWorld) getWorld();

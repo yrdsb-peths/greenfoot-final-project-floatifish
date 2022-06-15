@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Elephant here.
+ * to make Spaceship move,eat gasoline and be destroyed
  * 
  * @author Eric Wang
  * @version 2022.6.1
@@ -16,7 +16,11 @@ public class Spaceship extends Actor
     GreenfootImage upImage = new GreenfootImage("images/idle_SpaceShip_right/idle0.png");
     String isFacing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
-
+    GreenfootImage explode1 =new GreenfootImage("images/explode/explode0.png");
+    GreenfootImage explode2 =new GreenfootImage("images/explode/explode1.png");
+    GreenfootImage explode3 =new GreenfootImage("images/explode/explode2.png");
+    GreenfootImage explode4 =new GreenfootImage("images/explode/explode3.png");
+    GreenfootImage explode5 =new GreenfootImage("images/explode/explode4.png");
     public Spaceship()
     {
 
@@ -38,17 +42,20 @@ public class Spaceship extends Actor
             isFacing = "right";
             move(6);
         }
+        else{
+            isFacing = "up";
+        }
         eat();
-        destroy();
-
+        destroy(); 
+        
         if(isFacing.equals("left")){
             setImage(leftImage);
         }
-        // else if(isFacing.equals("up")...
         else if(isFacing.equals("right")){
             setImage(rightImage);
         }
-        else if(isFacing.equals("up")){
+        else if(isFacing.equals("up"))
+        {
             setImage(upImage);
         }
     }
@@ -69,6 +76,11 @@ public class Spaceship extends Actor
     {
         if(isTouching(Meteorite.class))
         {
+            setImage(explode1);
+            //setImage(explode2);
+            //setImage(explode3);
+            //setImage(explode4);
+            //setImage(explode5);
             removeTouching(Meteorite.class);
             MyWorld world = (MyWorld) getWorld();
             world.createMeteorite();

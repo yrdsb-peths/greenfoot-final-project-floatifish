@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * create MyWorld.
  * 
  * @Eric wang 
  * @2022.6.1
@@ -20,8 +20,8 @@ public class MyWorld extends World
      */
     public MyWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        // Create a new world with 800x450 cells with a cell size of 1x1 pixels.
+        super(800, 450, 1); 
 
         Spaceship spaceship = new Spaceship();
         addObject(spaceship, 350, 350);
@@ -38,10 +38,15 @@ public class MyWorld extends World
         gameOver = true;
         backgroundSound.stop();
         Label gameOverLabel = new Label("Game Over" ,100);
-        addObject(gameOverLabel, 300, 200);
-    }
-    
-    
+        addObject(gameOverLabel, 400, 200);
+        Label gameOverLabe2 = new Label("Press < s > to restart" ,40);
+        addObject(gameOverLabe2, 400, 300);
+        if(Greenfoot.isKeyDown("s"))
+        {
+            MyWorld gameWorld = new MyWorld();
+            Greenfoot.setWorld(gameWorld);
+        }
+    }  
 
     public void increaseScore()
     {
