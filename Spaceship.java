@@ -8,30 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Spaceship extends Actor
 {
+    //set initial variables
     GreenfootSound spaceshipSound = new GreenfootSound("water drop.mp3");
     GreenfootSound explosion = new GreenfootSound("explosion.mp3");
 
     GreenfootImage leftImage = new GreenfootImage("images/idle_SpaceShip_left/idle1.png");
     GreenfootImage rightImage = new GreenfootImage("images/idle_SpaceShip_right/idle1.png");
     GreenfootImage upImage = new GreenfootImage("images/idle_SpaceShip_right/idle0.png");
+    
     String isFacing ="up";
     SimpleTimer animationTimer = new SimpleTimer();
-    GreenfootImage[] explode =new GreenfootImage[5];
+ 
     public Spaceship()
     {
-        for(int i = 0; i <explode.length; i++)
-        {
-            explode[i]=new GreenfootImage("images/explode/explode0.png");
-        }
         animationTimer.mark();
     }
 
-    int imageIndex = 0;
-    public void spaceshipExplode()
-    {
-        setImage(explode[imageIndex]);
-        imageIndex = (imageIndex) +1 % explode.length;
-    }
 
     public void act()
     {
@@ -79,7 +71,6 @@ public class Spaceship extends Actor
     {
         if(isTouching(Meteorite.class))
         {
-            spaceshipExplode();
             removeTouching(Meteorite.class);
             MyWorld world = (MyWorld) getWorld();
             world.gameOver();

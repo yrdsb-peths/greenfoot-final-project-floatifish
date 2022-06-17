@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    //define initial variables
     boolean gameOver = false;
     GreenfootSound backgroundSound = new GreenfootSound("background music.mp3");
     GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
@@ -42,7 +43,7 @@ public class MyWorld extends World
     {
         score++;
         scoreLabel.setValue(score);
-
+        //each 5 point increase one speed
         if(score % 5 == 0)
         {
             level +=1;
